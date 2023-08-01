@@ -1,0 +1,38 @@
+.item-layout {
+  background-color: rgba(80, 152, 210, 0.6);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 20px;
+}
+
+.item-layout-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 400;
+  width: 100%;
+  padding: 10px 0;
+  position: relative;
+}
+.item-layout-info::after {
+  content: "";
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: 40%;
+  background: #fff;
+}
+
+.item-layout-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 24px;
+}
+
+.item-layout-area {
+  margin-right: 16px;
+}/*# sourceMappingURL=item.css.map */

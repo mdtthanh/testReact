@@ -1,0 +1,115 @@
+.wrapper{
+    background-color: #ccc;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-form-layout{
+    background-color: #fff;
+    width: 500px;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+
+.icon-logo{
+    width: 100px;
+    height: 80px;
+}
+.login-form-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.heading-authen-title{
+   font-size: 20px;
+   font-weight: 500;
+   margin-bottom: 20px;
+}
+.login-form-lable{
+    font-size: 16px;
+    font-weight: 500;
+    color: #3e3d3d;
+    margin-bottom: 10px;
+}
+.login-form-input{
+    padding: 10px;
+    margin-top: 10px;
+}
+.login-form-forgot{
+    color: #FF7F00;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-size: 16px;
+    font-weight:400;
+}
+
+.login-form-button{
+    width: 100%;
+    height: 46px;
+    background-color: #FF7F00;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+:where(.css-dev-only-do-not-override-1jr9qlj).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+    color: #fff;
+    background-color: #FF7F00;
+    opacity: 0.8;
+}
+.login-form-register{
+    font-size: 16px;
+    font-weight: 400;
+    color:#FF7F00;
+    margin-top: 10px;
+}
+.login-form-forgot {
+    float: right;
+  }
+.ant-form label{
+    font-size: 16px;
+  }
+.ant-btn-primary:hover{
+    background-color: #fff;
+  }
+
+  .login-form-remember{
+    font-size: 20px;
+    font-weight: 400;
+    color: #3c3c3c;
+  }
+
+
+  @media (max-width: 440px) {
+    .login-form-layout{
+        width: 100%;
+        border-radius: none;
+        .icon-logo {
+            width: 200px;
+            height: 180px;
+        }
+        .heading-authen-title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 24px;}
+
+        .login-form-register{
+                margin-top: 10px;
+            }
+        
+    }
+    .wrapper {
+        background-color: #ffffff;
+        display: flex;
+        align-items: baseline;
+      }
+      
+  }

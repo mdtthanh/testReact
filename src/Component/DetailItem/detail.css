@@ -1,0 +1,54 @@
+.detail-layout-item {
+  width: 100%;
+}
+
+.detail-layout-item {
+  margin-top: 10px;
+}
+
+.detail-layout-item-infor-heading {
+  background-color: #3E6788;
+  padding: 16px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.detail-layout-item-infor-main {
+  display: flex;
+  align-items: center;
+  background-color: rgba(80, 152, 210, 0.6);
+  padding: 16px;
+  position: relative;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 400;
+}
+.detail-layout-item-infor-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 44%;
+  height: 100%;
+  width: 2px;
+  background-color: #fff;
+}
+.detail-layout-item-infor-main::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; /* Adjust this value to control the distance of the line from the text */
+  left: 0;
+  height: 7px;
+  width: 100%;
+  background-color: #fff;
+}
+.detail-layout-item-infor-main .infor-main-title {
+  width: 40%;
+  text-align: center;
+  margin-right: 20px;
+}
+.detail-layout-item-infor-main .infor-main-value {
+  width: 60%;
+  text-align: center;
+}/*# sourceMappingURL=detail.css.map */
