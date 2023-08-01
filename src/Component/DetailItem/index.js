@@ -12,17 +12,21 @@ function DetailItem({ active, toggleSidebar }) {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const { itemId } = useParams();
-  const itemDetail = data.find((item) => item.id === parseInt(itemId));
+  const location = useLocation();
+  // const updateItemDetail = location.state.updateItemDetail;
+  const updateItemDetail = location.state && location.state.updateItemDetail;
+
+  const itemDetail = updateItemDetail
+    ? updateItemDetail
+    : data.find((item) => item.id === parseInt(itemId));
   const handleUpdate = () => {
-    navigate(`/capnhat/${itemId}`, {
-      itemDetail,
-    });
+    navigate(`/capnhat/${itemId}`, { state: { itemDetail: itemDetail } });
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:3000/Generator", {
+      .get("http://localhost:4001/Generator", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

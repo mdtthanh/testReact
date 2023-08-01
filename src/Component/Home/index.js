@@ -30,7 +30,7 @@ export default function Home({ active, toggleSidebar }) {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:3000/Generator", {
+      .get("http://localhost:4001/Generator", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

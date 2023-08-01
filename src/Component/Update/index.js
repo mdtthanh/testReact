@@ -7,11 +7,15 @@ function Update({}) {
   const navigate = useNavigate();
 
   const location = useLocation();
-  const { itemDetail } = location.state;
-  // const [detail, setDetail] = useState(itemDetail);
-  const voltage = itemDetail.ParameterAccu.map((accu) => accu.Voltage);
-  const resistor = itemDetail.ParameterAccu.map((accu) => accu.Resistor);
-  const time = itemDetail.ParameterAccu.map((accu) => accu.Time);
+  const itemDetail = location.state.itemDetail;
+  console.log(itemDetail);
+  const voltage =
+    itemDetail && itemDetail.ParameterAccu
+      ? itemDetail.ParameterAccu.map((accu) => accu.Voltage)
+      : null;
+  const resistor =
+    itemDetail && itemDetail.ParameterAccu?.map((accu) => accu.Resistor);
+  const time = itemDetail && itemDetail.ParameterAccu?.map((accu) => accu.Time);
 
   // const handleSave = () => {
   //   // find item by id
@@ -22,8 +26,8 @@ function Update({}) {
   //   // set new data to list
   //   setData(cloneData);
   //   navigate(`/chitiet/${itemDetail.id}`);
-  //   // handleSave();
-  //   // const token = localStorage.getItem("token");
+  // handleSave();
+  // const token = localStorage.getItem("token");
   //   // const itemId = itemDetail.id; // Đặt itemId dựa vào ID của item bạn muốn cập nhật
   //   // axios
   //   //   .put(`http://localhost:3000/Generator/${itemId}`, inputForm, {
@@ -49,13 +53,32 @@ function Update({}) {
   //   //   });
   // };
 
-  const handleSave = () => {};
+  const handleSave = () => {
+    console.log(inputForm);
+    //todo: set inputForm to itemDetail
+    itemDetail.ParameterAccu = [
+      {
+        Voltage: inputForm.voltage,
+        Resistor: inputForm.resistor,
+        Time: inputForm.time,
+      },
+    ];
+    itemDetail.Note = inputForm.note;
+    navigate(`/chitiet/${inputForm.id}`, {
+      state: { updateItemDetail: itemDetail },
+    });
+  };
+
+  const handleBack = () => {
+    navigate(`/chitiet/${inputForm.id}`);
+  };
 
   const [inputForm, setInputForm] = useState({
+    id: itemDetail && itemDetail.id ? itemDetail.id : "6",
     voltage: voltage,
     resistor: resistor,
     time: time,
-    note: itemDetail.Note,
+    note: itemDetail && itemDetail.Note ? itemDetail.Note : "",
   });
   const handleChange = (e) => {
     const name = e.target.name;
@@ -106,7 +129,9 @@ function Update({}) {
           />
         </div>
         <div className="update-btn">
-          <button className="btn-back">Back</button>
+          <button className="btn-back" onClick={handleBack}>
+            Back
+          </button>
           <button className="btn-save" onClick={handleSave}>
             Save
           </button>
